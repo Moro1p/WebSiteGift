@@ -263,12 +263,12 @@ function beatAnimation() {
 
 // ========== ЗВУКИ ==========
 const sounds = {
-  background: new Audio('assets/sounds/background.mp3'),
-  beat_in: new Audio('assets/sounds/heartbeat_in.mp3'),
-  beat_out: new Audio('assets/sounds/heartbeat_out.mp3'),
-  crack: new Audio('assets/sounds/crack.mp3'),
-  flash: new Audio('assets/sounds/flash.mp3'),
-  backgroundStart: new Audio('assets/sounds/background_start.mp3'),
+  background: new Audio('./assets/sounds/background.mp3'),
+  beat_in: new Audio('./assets/sounds/heartbeat_in.mp3'),
+  beat_out: new Audio('./assets/sounds/heartbeat_out.mp3'),
+  crack: new Audio('./assets/sounds/crack.mp3'),
+  flash: new Audio('./assets/sounds/flash.mp3'),
+  backgroundStart: new Audio('./assets/sounds/background_start.mp3'),
 };
 
 // Настройка звуков (зацикливание фона, низкая громкость)
@@ -611,13 +611,13 @@ function loadCarouselContent() {
   slidesContainer.innerHTML = '';
 
   const testPhotos = [
-    { src: 'assets/photos/photo1.jpg', comment: '18.05.2024 - Мой день Рождения. Помнишь как тусили в Москва-Сити и гуляли по Царицыно?' },
-    { src: 'assets/photos/photo2.jpg', comment: '31.05.2024 - Тут мы смотрели нового Майора Грома. Тебе очень не понравилась концовка...' },
-    { src: 'assets/photos/photo3.jpg', comment: '27.06.2024 - Твой выпускной) Торжественная выдача аттестатов и не менее веселая ночь. Помнишь как мы сидели в автобусе и пели песни?' },
-    { src: 'assets/photos/photo4.jpg', comment: 'Наши поездки друг другу на дачу. Прогулки по Калязину и окрестностям, встреча с твоей родней остались в тёплых воспоминаниях' },
-    { src: 'assets/photos/photo5.jpg', comment: 'Твои поездки ко мне в Красноармейск) Как мы фоткались на полянках, смотрели на закат... А ведь сейчас в Банном лесу целый парк' },
-    { src: 'assets/photos/photo6.jpg', comment: 'Наши прогулки по Москве... Где мы только не были: Москва-Сити, Остров Мечты, всевозможные парки и ТЦшки. Было весело' },
-    { src: 'assets/photos/photo7.jpg', comment: 'Наше с тобой романтическое свидание с походом в ресторан в элегантных костюмах. К сожалению только одно(' },
+    { src: './assets/photos/photo1.jpg', comment: '18.05.2024 - Мой день Рождения. Помнишь как тусили в Москва-Сити и гуляли по Царицыно?' },
+    { src: './assets/photos/photo2.jpg', comment: '31.05.2024 - Тут мы смотрели нового Майора Грома. Тебе очень не понравилась концовка...' },
+    { src: './assets/photos/photo3.jpg', comment: '27.06.2024 - Твой выпускной) Торжественная выдача аттестатов и не менее веселая ночь. Помнишь как мы сидели в автобусе и пели песни?' },
+    { src: './assets/photos/photo4.jpg', comment: 'Наши поездки друг другу на дачу. Прогулки по Калязину и окрестностям, встреча с твоей родней остались в тёплых воспоминаниях' },
+    { src: './assets/photos/photo5.jpg', comment: 'Твои поездки ко мне в Красноармейск) Как мы фоткались на полянках, смотрели на закат... А ведь сейчас в Банном лесу целый парк' },
+    { src: './assets/photos/photo6.jpg', comment: 'Наши прогулки по Москве... Где мы только не были: Москва-Сити, Остров Мечты, всевозможные парки и ТЦшки. Было весело' },
+    { src: './assets/photos/photo7.jpg', comment: 'Наше с тобой романтическое свидание с походом в ресторан в элегантных костюмах. К сожалению только одно(' },
   ];
 
   testPhotos.forEach(photo => {
