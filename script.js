@@ -267,8 +267,11 @@ const sounds = {
   crack: new Audio('./assets/sounds/crack.mp3'),
   flash: new Audio('./assets/sounds/flash.mp3'),
   backgroundStart: new Audio('./assets/sounds/background_start.mp3'),
+  backgroundEnd: new Audio('./assets/sounds/background_end.mp3'),
 };
 
+sounds.backgroundEnd.loop = true;
+sounds.backgroundEnd.volume = 0.5;
 
 sounds.backgroundStart.loop = true;
 sounds.backgroundStart.volume = 0.3;
@@ -287,6 +290,10 @@ function startBackgroundSound() {
     sounds.background.play().catch(() => {});
     soundStarted = true;
   }
+}
+
+function startEndBackgroundSound() {
+  sounds.backgroundEnd.play().catch(() => {});
 }
 
 function initBackground() {
@@ -605,6 +612,7 @@ function initDecodingForSlides() {
 
 // ========== КАРУСЕЛЬ ==========
 function loadCarouselContent() {
+  startEndBackgroundSound()
   const slidesContainer = document.querySelector('.slides');
   slidesContainer.innerHTML = '';
 
