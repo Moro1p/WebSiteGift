@@ -268,7 +268,10 @@ const sounds = {
   flash: new Audio('./assets/sounds/flash.mp3'),
   backgroundStart: new Audio('./assets/sounds/background_start.mp3'),
   backgroundEnd: new Audio('./assets/sounds/background_end.mp3'),
+  slide_sound: new Audio('./assets/sounds/slide_sound.mp3')
 };
+
+sounds.slide_sound.volume = 1;
 
 sounds.backgroundEnd.loop = true;
 sounds.backgroundEnd.volume = 0.5;
@@ -653,9 +656,11 @@ function loadCarouselContent() {
   carousel.addEventListener('click', (e) => {
     if (e.target.classList.contains('prev')) {
       resetDecoding();
+      sounds.slide_sound.play()
       slidesContainer.scrollBy({ left: -slidesContainer.clientWidth, behavior: 'smooth' });
     } else if (e.target.classList.contains('next')) {
       resetDecoding();
+      sounds.slide_sound.play()
       slidesContainer.scrollBy({ left: slidesContainer.clientWidth, behavior: 'smooth' });
     }
   });
