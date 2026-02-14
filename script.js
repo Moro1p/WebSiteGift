@@ -410,7 +410,7 @@ async function startCrackAnimation() {
     if (step < CONFIG.CRACK.STEPS - 1) {
       await new Promise(resolve => setTimeout(resolve, CONFIG.CRACK.STEP_DELAY));
     }
-  } с
+  }
 
 
   startSplitAndFlash();
