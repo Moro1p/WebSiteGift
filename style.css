@@ -1,5 +1,3 @@
-/* style.css (обновлённый) */
-
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +5,7 @@
 }
 
 body {
-  background: black;  /* начальный чёрный фон */
+  background: black; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,12 +22,12 @@ body {
     z-index: 1;
 }
 
-/* Передние столбы */
+
 .left {
     left: 0;
     width: 300px;
     height: 100vh;
-    z-index: 2;              /* выше задних */
+    z-index: 2;             
 }
 
 .right {
@@ -39,18 +37,18 @@ body {
     z-index: 2;
 }
 
-/* Задние столбы */
+
 .back-left {
-    left: 320px;             /* сразу после переднего левого (300px + зазор 20px) */
+    left: 320px;            
     width: 150px;
-    height: 70vh;            /* короче для перспективы */
-    top: 15vh;               /* смещение вниз (чтобы центр был примерно посередине) */
+    height: 70vh;            
+    top: 15vh;              
     z-index: 1;
     opacity: 0.8;
 }
 
 .back-right {
-    right: 320px;            /* симметрично справа */
+    right: 320px;            
     width: 150px;
     height: 70vh;
     top: 15vh;
@@ -67,10 +65,10 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-    z-index: 10;             /* выше столбов */
+    z-index: 10;
 }
 
-/* ========== ВСПЫШКА ========== */
+
 .flash {
   position: fixed;
   top: 0;
@@ -78,13 +76,13 @@ body {
   width: 100vw;
   height: 100vh;
   background: white;
-  opacity: 1; /* по умолчанию 0, но мы изменим через JS */
-  pointer-events: none; /* чтобы клики проходили сквозь на карусель */
+  opacity: 0;
+  pointer-events: none;
   z-index: 200;
-  transition: none; /* убираем переход, чтобы не было мигания */
+  transition: opacity 1s ease;
 }
 
-/* Карусель — адаптация под белый фон */
+
 .carousel {
   position: absolute;
   top: 50%;
@@ -107,7 +105,7 @@ body {
   justify-content: center;
 }
 
-/* Когда класс hidden убран — показываем */
+
 .carousel:not(.hidden) {
   opacity: 1;
   visibility: visible;
@@ -196,7 +194,6 @@ body {
   border-color: white;
 }
 
-/* Фоновая вспышка */
 .flash {
   position: fixed;
   top: 0;
