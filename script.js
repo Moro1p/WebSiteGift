@@ -1,5 +1,3 @@
-// script.js (обновлённый)
-
 // ========== ГЛОБАЛЬНЫЕ НАСТРОЙКИ ==========
 const CONFIG = {
   COLUMNS: {
@@ -50,7 +48,7 @@ elements.right.height = window.innerHeight;
 elements.heart.width = CONFIG.HEART.CANVAS_WIDTH;
 elements.heart.height = CONFIG.HEART.CANVAS_HEIGHT;
 
-// Контексты
+
 const ctx = {
   backLeft: elements.backLeft.getContext('2d'),
   backRight: elements.backRight.getContext('2d'),
@@ -88,7 +86,7 @@ function buildColumnMatrix(rows = CONFIG.COLUMNS.ROWS, cols = CONFIG.COLUMNS.COL
   return matrix;
 }
 
-// Инициализация
+
 columnMatrices.backLeft = buildColumnMatrix();
 columnMatrices.backRight = buildColumnMatrix();
 columnMatrices.left = buildColumnMatrix();
@@ -219,7 +217,7 @@ function drawHeart() {
   heartParticles.forEach(p => ctx.heart.fillText(p.char, p.x, p.y));
 }
 drawHeart();
-// Мерцание
+
 function startTwinkle() {
   if (state.twinkleInterval) clearInterval(state.twinkleInterval);
   state.twinkleInterval = setInterval(() => {
@@ -235,7 +233,7 @@ function startTwinkle() {
 }
 startTwinkle();
 
-// Пульсация при наведении
+
 elements.heart.addEventListener('mouseenter', () => {
   if (state.isExploding) return;
   state.isBeating = true;
@@ -271,7 +269,7 @@ const sounds = {
   backgroundStart: new Audio('./assets/sounds/background_start.mp3'),
 };
 
-// Настройка звуков (зацикливание фона, низкая громкость)
+
 sounds.backgroundStart.loop = true;
 sounds.backgroundStart.volume = 0.3;
 
@@ -282,11 +280,11 @@ sounds.beat_out.volume = 0.6;
 sounds.crack.volume = 0.8;
 sounds.flash.volume = 0.5;
 
-// Фон включается при первом взаимодействии с сердцем (наведение или клик)
+
 let soundStarted = false;
 function startBackgroundSound() {
   if (!soundStarted) {
-    sounds.background.play().catch(() => {}); // игнорируем блокировку автовоспроизведения
+    sounds.background.play().catch(() => {});
     soundStarted = true;
   }
 }
@@ -295,7 +293,7 @@ function initBackground() {
   const playPromise = sounds.backgroundStart.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // Автовоспроизведение заблокировано – ждём первого взаимодействия
+
       document.addEventListener('click', function playOnFirstClick() {
         sounds.backgroundStart.play().catch(e => console.warn('Ошибка воспроизведения:', e));
         document.removeEventListener('click', playOnFirstClick);
@@ -303,7 +301,7 @@ function initBackground() {
     });
   }
 }
-// Вызвать при загрузке
+
 initBackground();
 
 // ========== РАЗРУШЕНИЕ (КЛИК) ==========
@@ -360,21 +358,21 @@ const CRACKED_HEART_MATRIX = [
 elements.heart.addEventListener('click', () => {
   sounds.backgroundStart.pause()
   if (state.isExploding) return;
-  startBackgroundSound(); // убедимся, что фон играет
+  startBackgroundSound();
   state.isExploding = true;
   state.isBeating = false;
   clearInterval(state.twinkleInterval);
 
-  // Звук трещины
+
   
 
-  // Столбы уезжают вниз
+ 
   elements.left.style.transform = 'translateY(100vh)';
   elements.right.style.transform = 'translateY(100vh)';
   elements.backLeft.style.transform = 'translateY(100vh)';
   elements.backRight.style.transform = 'translateY(100vh)';
 
-  // Начинаем анимацию трещин
+
   startCrackAnimation();
 });
 
@@ -383,7 +381,7 @@ async function startCrackAnimation() {
     return CRACKED_HEART_MATRIX[p.row] && CRACKED_HEART_MATRIX[p.row][p.col] === '░';
   });
 
-  // Сортировка от краёв к центру
+
   const centerX = CONFIG.HEART.CANVAS_WIDTH / 2;
   const centerY = CONFIG.HEART.CANVAS_HEIGHT / 2;
   candidates.sort((a, b) => {
